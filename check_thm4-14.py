@@ -1,4 +1,5 @@
 import numpy as np
+
 eta = 0.02
 beta_l = 0.90
 beta_u = 0.905
