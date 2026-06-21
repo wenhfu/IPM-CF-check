@@ -22,7 +22,8 @@ def fun_alpha_p(nu):
 
 verbose = 1
 
-nu = 5.0
+
+nu = 1.0
 alpha_p = fun_alpha_p(nu)
 gamma = fun_gamma(nu)
 omega_bound = 1 - omega - (1 - delta) * omega**2
@@ -31,6 +32,14 @@ eta_p = omega / (omega - 1)**2 + (eta + (1 - delta) * (omega + omega**2) + np.sq
 beta_l_p = ( (1-alpha_p) * beta_l - alpha_p**2*gamma**2 ) / (1 - alpha_p + gamma**2 * alpha_p**2)
 beta_u_p = ( (1 - alpha_p + (alpha_p**2)/4) * beta_u ) / (1 - alpha_p - gamma**2 * alpha_p**2)
 delta_p = eta_p**2 + 2 * eta_p
+
+# \[
+#     c_p:=\frac{\omega(1-\delta)}{\sqrt{(1+\eta)^2+(1-\delta)\beta_u/2}},
+#     \quad
+#     c_\mu:=\alpha_c(\sigma-\widehat\beta_l^+),
+# \]
+c_p = omega * np.sqrt(1 - delta) / fun_gamma(1.0)
+c_mu = alpha_c * (sigma - beta_l_p)
 
 delta_p = eta_p**2 + 2 * eta_p
 theta = max( ( (beta_l_p - sigma)**2) / (4 * beta_l_p), ( (beta_u_p - sigma)**2) / (4 * beta_u_p) )
@@ -53,6 +62,9 @@ if verbose == 1:
     print(f"eta^+ is : {eta_p:.12f}")
     print(f"beta_l^+ is : {beta_l_p:.12f}")
     print(f"beta_u^+ is : {beta_u_p:.12f}")
+    print(f"c_p is : {c_p:.12f}")
+    print(f"c_mu is : {c_mu:.12f}")
+    print(f"xi:=c_p-c_mu is : {c_p - c_mu:.12f}")
     print()
     print(f"delta^+ is : {delta_p:.12f}")
     print(f"theta is : {theta:.12e}")
