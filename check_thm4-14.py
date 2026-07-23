@@ -1,7 +1,7 @@
 import numpy as np
 
 eta = 0.02
-beta_l = 0.90
+beta_l = 0.9
 beta_u = 0.905
 omega = 0.005
 alpha_c = 0.85
@@ -20,7 +20,6 @@ def fun_gamma(nu):
 def fun_alpha_p(nu):
     return omega*np.sqrt(1-delta)/fun_gamma(nu)
 
-verbose = 1
 
 
 nu = 1.0
@@ -52,14 +51,22 @@ beta_l_pp = ( (1 - alpha_c) * beta_l_p - (alpha_c*gamma_p)**2 + sigma * alpha_c 
 beta_u_pp = ( (1 - alpha_c) * beta_u_p + (alpha_c)**2 * theta + sigma * alpha_c ) * ( 1 - (alpha_c * gamma_p)**2 / nu )**(-1)
 
 
+verbose = 1
+
 if verbose == 1:
     print(f"nu is : {nu:.5f}")
     print(f"delta is : {delta:.12f}")
     print(f"omega upper bound is (<1): {omega_bound:.12f}")
     print(f"gamma(1) is : {gamma:.12f}")
+    q = alpha_p**2 * gamma**2
+    print(f"alpha(nu)^2gamma(nu)^2 := q is : {q:.12f}")
     print(f"alpha_p(1) is : {alpha_p:.12f}")
+    print(f"1-omega-(1-delta)omega^2 is : {1 - omega - (1 - delta) * omega**2:.12f}")
+    print(f"(1-alpha(1))beta_l-q is : {(1-alpha_p)*beta_l - q:.12f}")
     print(f"alpha_p upper bound is (>alpha_p): {alpha_p_bound:.12f}")
     print(f"eta^+ is : {eta_p:.12f}")
+    print(f"d beta_l^+ is : {-(1+beta_l_p)*q / (1-alpha_p+q)**2:.12f}")
+    print(f"d beta_u^+ is : {beta_u_p*(2-alpha_p)*(alpha_p+2*q) / (4*(1-alpha_p-q)**2):.12f}")
     print(f"beta_l^+ is : {beta_l_p:.12f}")
     print(f"beta_u^+ is : {beta_u_p:.12f}")
     print(f"c_p is : {c_p:.12f}")
@@ -73,6 +80,7 @@ if verbose == 1:
     print(f"alpha_c upper bound is (>1): {alpha_c_bound:.12f}")
     print(f"eta_tilde is : {eta_tilde:.12f}")
     print(f"eta^++ is : {eta_pp:.12f}")
+    print(f"(1-alpha_c)*beta_l^+ + sigma * alpha_c - (alpha_c*gamma_p)*2) is: {(1 - alpha_c) * beta_l_p + sigma * alpha_c - (alpha_c * gamma_p)**2:.12f}")
     print(f"beta_l^++ is : {beta_l_pp:.12f}")
     print(f"beta_u^++ is : {beta_u_pp:.12f}")
     print()
