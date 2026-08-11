@@ -23,7 +23,7 @@ As established via direct differentiation in the paper, all relevant quantities 
 The script computes the worst-case scalar quantities for the predictor point $z^+$ at $\nu=1$ (e.g., step length $\alpha_p(1)$, $\eta^+$, $\beta_l^+(1)$, $\beta_u^+(1)$, and $\delta^+$) and verifies:
 
 $$
-z^+ \in \mathcal{N}(0.03518,\,0.89995,\,0.90503)
+z^+ \in \mathcal{N}(0.03518,0.89995,0.90503)
 $$
 
 ### 2. Corrector Step
@@ -31,7 +31,7 @@ $$
 Using the fixed corrector step length $\alpha_c = 0.85$, the script evaluates the necessary conditions and bounds for the corrected point $z^{++}$ at $\nu=1$, confirming that the iterate is pulled back into the original predefined neighborhood:
 
 $$
-z^{++} \in \mathcal{N}(0.01665,\,0.90028,\,0.90376) \subset \mathcal{N}(0.02,\,0.9,\,0.905)
+z^{++} \in \mathcal{N}(0.01665,0.90028,0.90376) \subset \mathcal{N}(0.02,0.9,0.905)
 $$
 
 ## Usage
