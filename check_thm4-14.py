@@ -69,6 +69,8 @@ if verbose == 1:
     print(f"d beta_u^+ is : {beta_u_p*(2-alpha_p)*(alpha_p+2*q) / (4*(1-alpha_p-q)**2):.12f}")
     print(f"beta_l^+ is : {beta_l_p:.12f}")
     print(f"beta_u^+ is : {beta_u_p:.12f}")
+    print(f"lim beta_l^+ is : {(beta_l-q)/(1+q):.12f}")
+    print(f"lim beta_u^+ is : {(beta_u)/(1-q):.12f}")
     print(f"c_p is : {c_p:.12f}")
     print(f"c_mu is : {c_mu:.12f}")
     print(f"xi:=c_p-c_mu is : {c_p - c_mu:.12f}")
