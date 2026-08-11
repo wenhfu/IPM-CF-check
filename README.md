@@ -3,7 +3,7 @@
 
 This repository contains the supplementary numerical verification script for the paper:
 
-> **"A primal--dual Interior-Point Method for Nonsymmetric Conic Optimization with Conjugate-free Scaling"**
+> **"A Primal--Dual Interior-Point Method for Nonsymmetric Conic Optimization with Conjugate-Free Scaling"**
 > *by Rui-Jin Zhang, Wenhao Fu, and Yu-Hong Dai.*
 
 The single Python script provided here (`check_thm4-14.py`) rigorously verifies the scalar inequalities and neighborhood bounds for both the predictor and corrector steps presented in the paper's theoretical analysis.
