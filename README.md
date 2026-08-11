@@ -44,4 +44,4 @@ python check_thm4-14.py
 
 ## Expected Output
 
-Running the script will print the computed scalar quantities for both the predictor and corrector steps, along with boolean flags verifying that all strict inequalities hold true. These outputs directly match the endpoint values reported in the numerical verification tables of the paper.
+Running the script will print the computed scalar quantities for both the predictor and corrector steps, along with boolean flags verifying that all strict inequalities hold true. These numerical results are consistent with the calculations in the proof of Theorem 4.14 in Appendix B of the paper.
