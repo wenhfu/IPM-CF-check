@@ -158,7 +158,7 @@ print()
 
 print(f"delta is : {delta:.12f}")
 print(f"q is : {q:.12e}")
-print(f"omega upper bound is (<1): {1 - omega - (1 - delta) * omega**2:.12f}")
+print(f"1-omega-(1-delta)*omega^2 is : {1 - omega - (1 - delta) * omega**2:.12f}")
 print(f"gamma(1) is : {gamma(1.0):.12f}")
 print(f"alpha_p(1) is : {a1:.12f}")
 print(f"alpha_p upper bound is (>alpha_p(1)): {a1:.12f}")
