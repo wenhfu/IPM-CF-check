@@ -66,11 +66,7 @@ and is kept for reference.
 
 ## Expected Output
 
-<<<<<<< HEAD
 Running the script will print the computed scalar quantities for both the predictor
 and corrector steps, boolean flags verifying that all strict inequalities hold, the
 reported neighborhood membership statements, and the result of the independent grid
 check over $\nu\in[1,10^6]$.
-=======
-Running the script will print the computed scalar quantities for both the predictor and corrector steps, along with boolean flags verifying that all strict inequalities hold true. These numerical results are consistent with the calculations in the proof of Theorem 4.14 in Appendix B of the paper.
->>>>>>> 1c1b0f8dcedc59f96efc6e60bb5463171a894b74
