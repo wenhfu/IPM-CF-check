@@ -29,6 +29,9 @@ omega   = 0.008
 alpha_c = 0.96
 sigma   = 0.9058
 
+# uniform lower bound for beta_l^+(nu) over all nu >= 1 (reported in the paper)
+beta_hat_l = 0.8998
+
 # ----------------------------------------------------------------------
 #  derived constants
 # ----------------------------------------------------------------------
@@ -112,6 +115,11 @@ c_p  = omega * (1 - delta) / np.sqrt((1 + eta)**2 + (1 - delta) * beta_u / 2.0)
 c_mu = alpha_c * (sigma - bl1)
 xi   = c_p - c_mu
 
+# paper's conservative complexity constants (Theorem 4.14 proof):
+#   c_mu := alpha_c*(sigma - beta_hat_l^+) = 0.00576,  xi := c_p - c_mu > 0.00057
+c_mu_paper = alpha_c * (sigma - beta_hat_l)
+xi_paper   = c_p - c_mu_paper
+
 # ----------------------------------------------------------------------
 #  checks
 # ----------------------------------------------------------------------
@@ -131,6 +139,11 @@ checks = {
     "beta_u^++(1) < beta_u        ": bupp1 < beta_u,
     "eta^++(1) < eta              ": epp1 < eta,
     "xi = c_p - c_mu > 0          ": xi > 0,
+    # complexity constants reported in the proof of Theorem 4.14
+    "beta_hat_l^+ uniform lower bound": bl1 > beta_hat_l,
+    "c_p > 0.00633                ": c_p > 0.00633,
+    "c_mu = alpha_c(sigma-beta_hat) = 0.00576": abs(c_mu_paper - 0.00576) < 1e-12,
+    "xi = c_p - c_mu > 0.00057    ": xi_paper > 0.00057,
 }
 
 
@@ -160,6 +173,9 @@ print(f"lim beta_u^+ is : {bu_inf:.12f}")
 print(f"c_p is : {c_p:.12f}")
 print(f"c_mu is : {c_mu:.12f}")
 print(f"xi := c_p - c_mu is : {xi:.12f}")
+print(f"beta_hat_l^+ is : {beta_hat_l}")
+print(f"c_mu (paper, using beta_hat_l^+) is : {c_mu_paper:.12f}")
+print(f"xi (paper) is : {xi_paper:.12f}")
 print()
 print(f"delta^+ is : {delta_p:.12f}")
 print(f"theta(1) is : {t1:.12e}")
