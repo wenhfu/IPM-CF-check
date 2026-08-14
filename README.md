@@ -5,7 +5,7 @@ This repository contains the supplementary numerical verification script for the
 > **"A Primal--Dual Interior-Point Method for Nonsymmetric Conic Optimization with Conjugate-Free Scaling"**
 > *by Rui-Jin Zhang, Wenhao Fu, and Yu-Hong Dai.*
 
-The main script (`check_thm4_14_large.py`) rigorously verifies the scalar inequalities
+The main script (`check_thm11.py`) rigorously verifies the scalar inequalities
 and neighborhood bounds for both the predictor and corrector steps presented in the
 paper's theoretical analysis, with the widened parameter choice
 
@@ -57,7 +57,7 @@ The repository consists solely of the verification script. You can execute it di
 using Python (requires `numpy`):
 
 ```bash
-python check_thm4_14_large.py
+python check_thm11.py
 ```
 
 The legacy script `check_thm4-14.py` verifies the original narrow parameter choice
